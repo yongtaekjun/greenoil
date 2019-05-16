@@ -1,0 +1,15 @@
+{% extends "home/base.html" %}
+
+{% block content %}
+    {% for history in histories %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <p class="mr-2" href="#">{{ history.discription_of_status }} : {{ history.original }} </p>
+              <small class="text-muted">process by {{ history.staff }} </small>
+            </div>
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}
+

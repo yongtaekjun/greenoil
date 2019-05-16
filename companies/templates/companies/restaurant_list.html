@@ -1,0 +1,20 @@
+{% extends "home/base.html" %}
+
+{% block content %}
+    {% for restaurant in restaurants %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href=" {% url 'restaurant_detail' restaurant.company.pk %} ">
+                <img class="rounded-circle account-img" src="{{ restaurant.image.url }}">
+                {{ restaurant.full_name }} of DIV# {{ restaurant.division }}
+              </a>
+              <small class="text-muted">{{ restaurant.city }} approved by {{ restaurant.approved_on | date:"Y-m-d" }} </small>
+            </div>
+            <h4><a class="article-title" href="#">{{ restaurant.address }}</a></h4>
+            <p class="article-content">{{ restaurant.location }} </p>
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}
+

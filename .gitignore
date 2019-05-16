@@ -1,0 +1,7 @@
+venv/
+etc/
+.vscode/
+*.sqlite3
+*.cfg
+*.csv
+todo/

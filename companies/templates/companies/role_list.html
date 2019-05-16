@@ -1,0 +1,12 @@
+{% extends "home/base.html" %}
+
+{% block content %}
+  {% for role in roles %}
+    <article class="media content-section">
+      <div class="media-body">
+        <p class="article-title" >{{ role.user }} {{ role.description_of_role }} {{ role.company }} </p>
+      </div>
+    </article>
+  {% endfor %}
+{% endblock content %}
+

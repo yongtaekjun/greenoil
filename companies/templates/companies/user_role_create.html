@@ -1,0 +1,45 @@
+{% extends 'home/base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <div class="container">
+        <form action="" method="POST" >
+            {% csrf_token %}
+            {{ form }}
+
+            <label for="company_type">Choose Company Type </label>
+            <select name="company_type" id="company_type">
+                {% for company_type in company_type_list %}
+                    <option >{{company_type.title}}</option>
+                {% endfor %}
+
+            </select>
+
+            <label for="username">Enter username </label>
+            <input type="text" name="username" id="username">
+
+            <label for="company_name">Company Name </label>
+            <input type="text" name="company_name" id="company_name">
+
+            <label for="role">Role </label>
+            <select name="role" id="role">
+                {% for role in role_list %}
+                    <option >{{role.title}}</option>
+                {% endfor %}
+
+            </select>
+
+            <input type="hidden" name="st_category_list">
+            <ul id="ul_category_list">
+
+            </ul>
+
+            <button type="submit" class="btn">Create Role</button>    
+        </form>
+    </div>
+
+    {% comment %} <script src='{% static "js/scripts.js" %}'></script> {% endcomment %}
+
+{% endblock %}
+

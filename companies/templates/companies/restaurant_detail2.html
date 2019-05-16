@@ -1,0 +1,30 @@
+{% extends "home/base.html" %}
+
+{% block content %}
+    <article class="media content-section">
+        <div class="media-body">
+        <div class="article-metadata">
+            <a class="mr-2" href="#">{{ object.full_name }} of DIV# {{ object.division }}</a>
+            <small class="text-muted">{{ object.city }} approved by {{ object.approved_on | date:"Y-m-d" }} </small>
+        </div>
+        <h5 class="article-title" >Short Name: {{ object.short_name }} </h5>
+        <h5 class="article-title" >Full Name: {{ object.full_name }} </h5>
+        <img class="rounded-circle account-img" src="{{ object.image.url }}">
+        <h5 class="article-title" >Phone: {{ object.phone }} </h5>
+        <h5 class="article-title" >Division: {{ object.division.key }} </h5>
+        {% if object.oil_collect_contract_restaurant %}
+            <h5 class="article-title" >Contract: {{ object.oil_collect_contract_restaurant }} </h5>
+        {% endif %}
+        <h5 class="article-title" >{{ object.latitude }} </h5>
+        <h5 class="article-title" >{{ object.longitude }} </h5>
+        <h5 class="article-title" >Is Active? {{ object.is_active }} </h5>
+        <h5 class="article-title" >Address: {{ object.address }} </h5>
+        <h5 class="article-title" >Staffs: {{ object.staffs }} </h5>
+        <h5 class="article-title" >Registerd on {{ object.registered_on }} </h5>
+        <h5 class="article-title" >Approved on {{ object.approved_on }} </h5>
+    
+        <p class="article-content">{{ object.location }} </p>
+        </div>
+    </article>
+{% endblock content %}
+

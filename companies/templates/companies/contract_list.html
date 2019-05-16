@@ -1,0 +1,17 @@
+{% extends "home/base.html" %}
+
+{% block content %}
+  {% for contract in contracts %}
+    <article class="media content-section">
+      <div class="media-body">
+        <p class="article-title" >
+          <a class="mr-2" href=" {% url 'restaurant_detail' contract.restaurant.pk %} "> {{ contract.restaurant }}</a>  DIV# {{ contract.restaurant.division }}-
+          {{ contract.collector }} 
+          with $ {{ contract.rate }}/L ({{contract.tank_size}} L), ON {{contract.tank_direction }}H{{contract.tank_distance}} MT
+          by {{ contract.referal }} 
+        </p>
+      </div>
+    </article>
+  {% endfor %}
+{% endblock content %}
+

@@ -1,0 +1,21 @@
+{% extends "home/base.html" %}
+
+{% block content %}
+    {% for call in calls %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ call.description_of_category }} for {{ call.client }} on {{ call.required_date | date:"Y-m-d" }} </a>
+              <small class="text-muted">requested by {{ call.requester }} </small>
+              <small class="text-muted">{{ call.detail }} </small>
+            </div>
+            {% for status in call.processingstatus_set.all %}
+              <div class="article-metadata">
+                  <small class="text-muted">history {{ status.description_of_status }} by staff {{ status.staff }} on {{status.created_on | date:"Y-m-d" }} </small>
+              </div>
+            {% endfor %}
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}
+
